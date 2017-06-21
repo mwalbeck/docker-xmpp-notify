@@ -6,4 +6,4 @@ Send a notification when a new image is released on a later date than the curren
 
 ## Usage
 
-Input your desired xmpp information in the scripts and setup a cronjob. The scripts needs to run as the same user as the docker daemon.
+Input your desired xmpp information in the script and setup a cronjob. The script needs to run as the same user as the docker daemon.
