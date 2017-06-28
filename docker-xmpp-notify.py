@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """
 docker xmpp notify - get an xmpp message when there is an update
 for your docker containers.
