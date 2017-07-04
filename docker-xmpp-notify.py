@@ -23,21 +23,22 @@ base_url = "https://hub.docker.com/v2/repositories"
 
 client = docker.from_env()
 
+
 class SendMsg(sleekxmpp.ClientXMPP):
-    
+
     def __init__(self, jid, password, recipient, message):
         sleekxmpp.ClientXMPP.__init__(self, jid, password)
 
         self.recipient = recipient
         self.msg = message
-        
+
         self.add_event_handler("session_start", self.start, threaded=True)
 
     def start(self, event):
         self.send_message(mto=self.recipient, mbody=self.msg, mtype='chat')
 
         self.disconnect(wait=True)
-        
+
 
 def get_url(base_url, image_name):
     name_split = split_image_name(image_name)
@@ -51,7 +52,7 @@ def split_image_name(image_name):
 def get_user(image_name):
     if '/' in image_name:
         return image_name.split('/')[0]
-    
+
     return 'library'
 
 
@@ -68,7 +69,7 @@ def get_repository(image_name):
 def get_tag(image_name):
     if ':' in image_name:
         return image_name.split(':')[1]
-    
+
     return 'latest'
 
 
